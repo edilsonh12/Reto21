@@ -8,7 +8,7 @@ const pool = new Pool({
     database: 'gimnasio',
     user: 'postgres',
     port: 5432,
-    password: '1234'
+    password: '28482B4D62516554'
 });
 
 //Definición de funciones---------------------------------------
