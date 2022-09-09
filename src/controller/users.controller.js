@@ -948,6 +948,7 @@ const searchDateUserToResetPassword = async (req, res) => {
         if(response.error){
             res.status(500).json(response.error);
         }else{
+            res.json(response.rows);
             if(response.rowCount == 0){
                 res.status(200).json('El correo que ingreso no corresponde a ningún correo registrado, intente nuevamente.');
             }else if(response.rowCount >= 1){
