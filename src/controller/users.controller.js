@@ -771,7 +771,18 @@ const createNewUser = async (req, res) => {
                     if(response.error){
                         res.status(401).json(response.error);
                     }else{
-                        res.status(200).json('Nuevo usuario creado con éxito');
+                         const documento_nutri_nutri = documento;
+                         const id_plan_nutri_nutri = 1;
+                            
+                         const response5 = await pool.query('insert into tipo_usuario_nutri (id_plan_nutri_nutri,documento_nutri_nutri) values ($1,$2)',[id_plan_nutri_nutri,documento_nutri_nutri]);   
+                         
+                         if(response5.error)   {
+                                res.status(401).json(response5.error);
+                         }else{
+                                res.status(200).json('Nuevo usuario creado con éxito');
+                         }        
+                            
+
                     }
 
 
