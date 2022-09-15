@@ -3,7 +3,7 @@ const router = express.Router();
 
 //Importar métodos---------------------------------------------------------->
 
-const { createAlergiaNewUser, createEnfermedadNewUser, createMedicamentosNewUser, createInfoGeneral, updateTipUsers, createMeasures, createAssessmentBasic, createMeasuresBasic, cancellAssessmentBasic, getDocument, deleteMeasures, createGenerales, createMasa, createGrasa, createAssessmentAdvanced, updateGenerales, selectAssessmentPhy, updateMasaCorporal, updateGrasaCorporal, getDocumentAdvanced, deleteAssessmentAdvanced, deleteGenerales, deleteGrasa, deleteMasa, searchAssessmentBasic, searchAssessmentAdvanced, selectAssessmentBasic, updateWeight, selectAssessmentAdvanced, selectGenerales, updategeneralesTwo, selectMasa, selectGrasa, selectMeasures, getHeight, createAssessmentBasicOld, createGeneralesOld, selectMeasuresOfUser, selectImc, selectMeasuresUserAdvanced, selecGeneralesAdvanced, selectEstatura, selectMasaMuscular, selectGrasaCorporalAdvanced, selectQuotes, selectViewQuotes, selectOneQuotes, searchAssessmentExt, searchTypeAssessmentclient, searchStateQuotes, selectAllReservacion, CreateSolicitadAssessment, cancellQuoteAssessment, selectAllQuotesOneUser, selectTypeQuote, selectUserQuotes, assingQuote, selectTimeQuote, createNotificationQuote, selectAllTimeConfirm, updateStateTemp, selectAllState, searchEmailUserAdvanced, searchEmailUserBasic, updateQuoteAssing } = require('../controller/assessment.controller');
+const { createAlergiaNewUser, createEnfermedadNewUser, createMedicamentosNewUser, createInfoGeneral, updateTipUsers, createMeasures, createAssessmentBasic, createMeasuresBasic, cancellAssessmentBasic, getDocument, deleteMeasures, createGenerales, createMasa, createGrasa, createAssessmentAdvanced, updateGenerales, selectAssessmentPhy, updateMasaCorporal, updateGrasaCorporal, getDocumentAdvanced, deleteAssessmentAdvanced, deleteGenerales, deleteGrasa, deleteMasa, searchAssessmentBasic, searchAssessmentAdvanced, selectAssessmentBasic, updateWeight, selectAssessmentAdvanced, selectGenerales, updategeneralesTwo, selectMasa, selectGrasa, selectMeasures, getHeight, createAssessmentBasicOld, createGeneralesOld, selectMeasuresOfUser, selectImc, selectMeasuresUserAdvanced, selecGeneralesAdvanced, selectEstatura, selectMasaMuscular, selectGrasaCorporalAdvanced, selectQuotes, selectViewQuotes, selectOneQuotes, searchAssessmentExt, searchTypeAssessmentclient, searchStateQuotes, selectAllReservacion, CreateSolicitadAssessment, cancellQuoteAssessment, selectAllQuotesOneUser, selectTypeQuote, selectUserQuotes, assingQuote, selectTimeQuote, createNotificationQuote, selectAllTimeConfirm, updateStateTemp, selectAllState, searchEmailUserAdvanced, searchEmailUserBasic, updateQuoteAssing, verifyExistingRegisterCita, createSolicitadAssessment } = require('../controller/assessment.controller');
 
 //Definición de las rutas--------------------------------------------------->
 
@@ -107,6 +107,13 @@ router.post('/updateQuoteAssing', updateQuoteAssing);
 
 router.post('/searchEmailUserAdvanced', searchEmailUserAdvanced);
 router.post('/searchEmailUserBasic', searchEmailUserBasic);
+
+
+
+
+router.post('/verifyExistingRegisterCita', verifyExistingRegisterCita);
+router.post('/createSolicitadAssessment', createSolicitadAssessment);
+
 
 
 
