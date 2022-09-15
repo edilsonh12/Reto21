@@ -745,7 +745,8 @@ const selectTypeValoracion = async (req, res) => {
 const createNewUser = async (req, res) => {
 
     try {
-        const { documento, nombres, primer_apellido, segundo_apellido, tipo_de_documento, correo, estado, genero, img, fecha_nacimiento,             numero_telefono,    id_suscripcion_pago, fecha_de_fin,        id_valoracion_tipo} = req.body;
+        const { documento, nombres, primer_apellido, segundo_apellido, tipo_de_documento, correo, genero, img, fecha_nacimiento,             numero_telefono,    id_suscripcion_pago, fecha_de_fin,        id_valoracion_tipo} = req.body;
+        const estado = 1;
         const rol = 5;
         const password = cryptr.encrypt(documento);
         const response = await pool.query('insert into usuarios (documento, correo, password, nombres, primer_apellido, segundo_apellido, rol, tipo_de_documento,estado,genero,img,fecha_nacimiento) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',[documento, correo, password, nombres, primer_apellido, segundo_apellido, rol, tipo_de_documento, estado, genero, img, fecha_nacimiento]);
