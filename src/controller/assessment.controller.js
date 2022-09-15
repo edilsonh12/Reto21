@@ -1100,13 +1100,13 @@ const assingQuote = async (req, res) => {
         const response = await pool.query('update reservacion_usuario set id_reservacion_usuario = $1, fecha = $2, state = $3, hora = $4 where documento_reservacion = $5',[id_reservacion_usuario, fecha, state, hora,documento_reservacion]);
 
         if(response.error){
-            res.status(401).json(response.error);
+            res.json(response.error);
         }else{
             res.status(200).json('Cita agendada con exito');
         }
 
     } catch (error) {
-        res.status(401).json(error.details);
+        res.json(error.message);
     }
 
 }
