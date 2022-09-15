@@ -3,7 +3,7 @@ const router = express.Router();
 
 //Importar métodos-------------------------------------------------------
 
-const { selectTraining, insertTraining, deleteTraining, cancelChallenges, selectAllChallenges, updateStateChallenges, selectClientRegistered, selectClientNoRegistered, registeredClientToChallenges, searchOneUser, searchDataChallenges, selectState, updateChallengesNoImg, selectDataFromChallenges, selectTrainingFromChallenges, selectStateChallengesUser, selectTrainingChallenges, selectOneTrainingChallenges, registeredClientChallenges, validateUserAndChallenges } = require('../controller/challenges.controller');
+const { selectTraining, insertTraining, deleteTraining, cancelChallenges, selectAllChallenges, updateStateChallenges, selectClientRegistered, selectClientNoRegistered, registeredClientToChallenges, searchOneUser, searchDataChallenges, selectState, updateChallengesNoImg, selectDataFromChallenges, selectTrainingFromChallenges, selectStateChallengesUser, selectTrainingChallenges, selectOneTrainingChallenges, registeredClientChallenges, validateUserAndChallenges, stateRegisteredChallenges } = require('../controller/challenges.controller');
 
 const { Pool } = require('pg');
 const multer = require('multer');
@@ -111,6 +111,11 @@ router.post('/selectTrainingChallenges', selectTrainingChallenges);
 router.post('/selectOneTrainingChallenges',selectOneTrainingChallenges);
 router.post('/registeredClientChallenges', registeredClientChallenges);
 router.post('/validateUserAndChallenges', validateUserAndChallenges);
+
+
+
+router.post('/stateRegisteredChallenges', stateRegisteredChallenges);
+
 
 
 //Exportar las rutas-----------------------------------------------------
