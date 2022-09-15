@@ -779,7 +779,19 @@ const createNewUser = async (req, res) => {
                             res.status(401).json(response.error);
                             console.log('Aquí esta el error :v');
                         }else{
-                            res.status(200).json('Nuevo usuario creado con éxito');
+                                
+                            const id_plan_entre = 1;
+                            const documento_entre = documento;
+                            const response = await pool.query('insert into plan_entre_usuario (id_plan_entre, documento_entre) values ($1,$2)',[id_plan_entre,documento_entre]);
+                                
+                                
+                            if(response.error){
+                                res.json(response.error);
+                            }else{
+                                res.status(200).json('Nuevo usuario creado con éxito');
+                            } 
+                                
+                            
                         }     
                             
 
