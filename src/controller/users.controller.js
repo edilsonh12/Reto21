@@ -745,7 +745,8 @@ const selectTypeValoracion = async (req, res) => {
 const createNewUser = async (req, res) => {
 
     try {
-        const { documento, nombres, primer_apellido, segundo_apellido, tipo_de_documento, correo, genero, img, fecha_nacimiento,             numero_telefono,    id_suscripcion_pago, fecha_de_fin,        id_valoracion_tipo} = req.body;
+        const { documento, nombres, primer_apellido, segundo_apellido, tipo_de_documento, correo, genero, fecha_nacimiento,             numero_telefono,    id_suscripcion_pago, fecha_de_fin,        id_valoracion_tipo} = req.body;
+        const img = 1;
         const estado = 1;
         const rol = 5;
         const password = cryptr.encrypt(documento);
