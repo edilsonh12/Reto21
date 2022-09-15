@@ -434,7 +434,7 @@ const stateRegisteredChallenges = async (req, res) => {
         }else{
             if(response.rowCount == 0){
                 res.status(200).json('No esta registrado');
-            }else if(response.rowCoun >= 1){
+            }else if(response.rowCount >= 1){
                 res.status(200).json('Si esta registrado');
             }
         }
