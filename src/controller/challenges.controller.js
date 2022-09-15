@@ -419,6 +419,36 @@ const validateUserAndChallenges = async (req, res) => {
 
 //---------------------------------------------------------------------------
 
+
+
+
+
+const stateRegisteredChallenges = async (req, res) => {
+
+    try {
+        const { id_retos_us, documento_us } = req.body;
+        const response = await pool.query('select * from retos_ejecicios where id_retos_us = $1 and documento_us = $2',[id_retos_us, documento_us]);
+
+        if(response.error){
+            res.json(response.error);
+        }else{
+            if(response.rowCount == 0){
+                res.status(200).json('No esta registrado');
+            }else if(response.rowCoun >= 1){
+                res.status(200).json('Si esta registrado');
+            }
+        }
+
+    } catch (error) {
+        res.json(error.message);
+    }
+
+}
+
+
+
+
+
 //Exportar métodos-------------------------------------------------------
 module.exports = {
 
@@ -447,6 +477,10 @@ module.exports = {
     selectTrainingChallenges,
     selectOneTrainingChallenges,
     registeredClientChallenges,
-    validateUserAndChallenges
+    validateUserAndChallenges,
+    
+    
+    
+    stateRegisteredChallenges
 
 };
