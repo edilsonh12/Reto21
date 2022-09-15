@@ -33,7 +33,7 @@ const comparePassword = async (req, res) => {
         const response = await pool.query('select password from usuarios where documento = $1',[documento]);
 
         if(response.error){
-            res.status(401).json(response.error);
+            res..json(response.error);
         }else{
 
             const password_act = cryptr.decrypt(response.rows[0].password);
@@ -51,7 +51,7 @@ const comparePassword = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(401).json(error.details);
+        res.json(error.message);
     }
 
 }
