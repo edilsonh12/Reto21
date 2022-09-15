@@ -565,14 +565,14 @@ const selectGenderUser = async (req, res) => {
 const registeredAssist = async (req, res) => {
 
     try {
-        const { id_asistencia_usuario, documento_asistencia } = req.body;
+        const { id_asistencia_usuario, documento_asistencia, hora } = req.body;
         const id_asistencia = id_asistencia_usuario;
         const response = await pool.query('insert into asistencia (id_asistencia, fecha_asistencia) values ($1,current_date)',[id_asistencia]);
 
         if(response.error){
             res.status(401).json(response.error);
         }else{
-            const respuesta = await pool.query('insert into asistencia_usuario (id_asistencia_usuario, documento_asistencia, hora_asistencia) values ($1,$2,current_time)',[id_asistencia_usuario,documento_asistencia]);
+            const respuesta = await pool.query('insert into asistencia_usuario (id_asistencia_usuario, documento_asistencia, hora_asistencia) values ($1,$2,$3)',[id_asistencia_usuario,documento_asistencia,hora]);
 
             if(respuesta.error){
                 res.status(401).json(respuesta.error);
