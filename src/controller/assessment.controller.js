@@ -1247,6 +1247,57 @@ const searchEmailUserBasic = async (req, res) => {
 
 
 
+
+
+
+
+
+
+const verifyExistingRegisterCita = async (req, res) => {
+
+    try {
+        const { documento_reservacion } = req.body;
+        const response = await pool.query('select * from reservacion_usuario where documento_reservacion = $1',[documento_reservacion]);
+
+        if(response.error){
+            res.json(response.error)
+        }else{
+
+            if(response.rowCount == 0){
+                res.status(200).json('Es la primera');
+            }else if(response.rowCount >= 1){
+                res.status(200).json('No es la primera');
+            }
+
+        }
+
+    } catch (error) {
+        res.json(error.message);
+    }
+
+}
+
+const createSolicitadAssessment  = async (req, res) => {
+
+    try {
+        const { id_reservacion_usuario, documento_reservacion, state } = req.body;
+        const hora = 1;
+        const response = await pool.query('update reservacion_usuario set id_reservacion_usuario = $1, fecha = current_date, state=$2, hora = $3 where documento_reservacion=$4',[id_reservacion_usuario, state, hora, documento_reservacion]);
+
+        if(response.error){
+            res.status(401).json(response.error);
+        }else{
+            res.status(200).json('Solicitud creada con exito');
+        }
+
+    } catch (error) {
+        res.status(401).json(error.details);
+    }
+
+}
+
+
+
 //Exportat los métodos-------------------------------------------------------------->
 
 module.exports = {
@@ -1351,7 +1402,14 @@ module.exports = {
 
 
     searchEmailUserAdvanced,
-    searchEmailUserBasic
+    searchEmailUserBasic,
+    
+    
+    
+    
+    verifyExistingRegisterCita,
+    createSolicitadAssessment
+    
 
 
 }
