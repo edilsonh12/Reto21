@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //Definición de las variables exportadas por el controlador---------------------->
-const { selectUsers, selectDocument, selectRol, selectAllRole, createUsers, selectGender, selectUser, updateUsers, updateState, selectHistory, promedioAssist, meanOneMonth, selectDays, selectClient, selectImgUser, profileUser, selectVerifyImg, deleteImgProfile, updateProfile, selectPasswordProfile, updatePassword, selectUsersPlan, selectOldUsersFirstPart, selectNewUsers, selectOldUsersSecondtPart, selectInfoGeneralUser, selectGenderUser, registeredAssist, confirmAssist, selectNumberDays, selectDataUserDateInitAndFinish, selectAllClient, searchSuscription, updateStateClient, selectPlanSuscription, selectTypeValoracion, createNewUser, searchPerfilUser, validateDateFin, updatePlanUserm, updateTypeAssessmentUser, updateDatePerfil, updateTimePago, searchEmailUser, searchDateUserToResetPassword, validateExistensPassword, resetPassword, selecUserFromRol, searchOnePersonalTitle, searchOnePersonalInfo } = require('../controller/users.controller');
+const { selectUsers, selectDocument, selectRol, selectAllRole, createUsers, selectGender, selectUser, updateUsers, updateState, selectHistory, promedioAssist, meanOneMonth, selectDays, selectClient, selectImgUser, profileUser, selectVerifyImg, deleteImgProfile, updateProfile, selectPasswordProfile, updatePassword, selectUsersPlan, selectOldUsersFirstPart, selectNewUsers, selectOldUsersSecondtPart, selectInfoGeneralUser, selectGenderUser, registeredAssist, confirmAssist, selectNumberDays, selectDataUserDateInitAndFinish, selectAllClient, searchSuscription, updateStateClient, selectPlanSuscription, selectTypeValoracion, createNewUser, searchPerfilUser, validateDateFin, updatePlanUserm, updateTypeAssessmentUser, updateDatePerfil, updateTimePago, searchEmailUser, searchDateUserToResetPassword, validateExistensPassword, resetPassword, selecUserFromRol, searchOnePersonalTitle, searchOnePersonalInfo, searchTypeAssessment } = require('../controller/users.controller');
 
 
 //Definición de las rutas-------------------------------------------------------->
@@ -93,6 +93,9 @@ router.post('/resetPassword', resetPassword);
 router.post('/selecUserFromRol', selecUserFromRol);
 router.post('/searchOnePersonalInfo', searchOnePersonalInfo);
 router.post('/searchOnePersonalTitle', searchOnePersonalTitle);
+
+
+router.post('/searchTypeAssessment', searchTypeAssessment);
 
 //Profile User----------------------------------------------------------->
 
