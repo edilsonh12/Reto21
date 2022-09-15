@@ -1296,11 +1296,7 @@ const sendEmailUpdateQuote = async (req, res) => {
         }
     });
 
-    const { correo,id_reservacion,hora,fecha } = req.body;
-
-    const id_hora = hora;
-    const response = await pool.query('select horas from reservacion_hora where id_hora = $1',[id_hora]);
-    const horas = response.horas;
+    const { correo } = req.body;
 
     var mailOptions = {
         from: 'Reto 21',
@@ -1363,7 +1359,7 @@ const sendEmailUpdateQuote = async (req, res) => {
                             </tr> <!-- COPY -->
                             <tr>
                                 <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                    <p style="margin: 0;"> Tú cita de valoración quedo agendada el día  <a style="color: #d8ca02;"> ${fecha.substring(0,10)} </a> a la hora <a style="color: #d8ca02;"> ${horas.substring(0,5)}. </a> Le invitamos a comunicarse con un administrador o entrenador para recibir más información.  </p>
+                                    <p style="margin: 0;"> Tú cita se modifico, ¡Te invitamos a iniciar sesión para poder visualizar los cambios efectuados!. <a style="color: #d8ca02;"> </a> <a style="color: #d8ca02;"> </a> Le invitamos a comunicarse con un administrador o entrenador para recibir más información.  </p>
                                 </td>
                             </tr> <!-- COPY -->
                             <tr>
