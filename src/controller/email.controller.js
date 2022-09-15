@@ -1155,10 +1155,7 @@ const sendEmailAssingQuote = async (req, res) => {
         }
     });
 
-    const { correo,id_reservacion,hora,fecha } = req.body;
-    const id_hora = hora;
-    const response = await pool.query('select horas from reservacion_hora where id_hora = $1',[id_hora]);
-    const horas = response.horas;
+    const { correo } = req.body;
 
     var mailOptions = {
         from: 'Reto 21',
@@ -1221,7 +1218,7 @@ const sendEmailAssingQuote = async (req, res) => {
                             </tr> <!-- COPY -->
                             <tr>
                                 <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                    <p style="margin: 0;"> Tú cita de valoración quedo agendada el día  <a style="color: #d8ca02;"> ${fecha} </a> a la hora <a style="color: #d8ca02;"> ${horas}. </a> Le invitamos a comunicarse con un administrador o entrenador para recibir más información.  </p>
+                                    <p style="margin: 0;"> Tú cita de valoración se asignó, ¡Inicia sesión para poder ver los datos de tú cita de valoración!.  <a style="color: #d8ca02;"> </a> <a style="color: #d8ca02;"> </a> Le invitamos a comunicarse con un administrador o entrenador para recibir más información.  </p>
                                 </td>
                             </tr> <!-- COPY -->
                             <tr>
