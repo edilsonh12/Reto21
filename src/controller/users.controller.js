@@ -1100,6 +1100,25 @@ const searchOnePersonalTitle = async (req, res) => {
 //--------------------------------------------------------------------------------------
 
 
+const searchTypeAssessment = async (req, res) => {
+
+    try {
+        const { documento } = req.body;
+        const response = await pool.query('SELECT id_valoracion, nombre_valoracion FROM tipo_usuario,tipo_valoracion, usuarios where id_valoracion_tipo=id_valoracion and documento_tipo=documento and documento=$1',[documento]);
+
+        if(response.error){
+            res.status(401).json(response.error);
+        }else{
+            res.status(200).json(response.rows);
+        }
+
+    } catch (error) {
+        res.status(401).json(error.message);
+    }
+
+}
+
+
 
 //Exportar variables--------------------------------------------------------------------->
 
@@ -1196,6 +1215,10 @@ module.exports = {
 
         selecUserFromRol,
         searchOnePersonalInfo,
-        searchOnePersonalTitle
+        searchOnePersonalTitle,
+        
+        
+        
+        searchTypeAssessment
 
 }
