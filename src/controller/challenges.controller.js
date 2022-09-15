@@ -427,7 +427,7 @@ const stateRegisteredChallenges = async (req, res) => {
 
     try {
         const { id_retos_us, documento_us } = req.body;
-        const response = await pool.query('select * from retos_usuarios where id_retos_us = $1 and documento_us = $2',[id_retos_us, documento_us]);
+        const response = await pool.query('select * from retos_usuarios ');
 
         if(response.error){
             res.json(response.error);
