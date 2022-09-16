@@ -139,11 +139,11 @@ const createNotifications = async (req, res) => {
 const createMultipleNotifications = async (req, res) => {
 
     try {
-        const { documentos_usu, id_noti_us } = req.body;
+        const { documentos_usu, id_noti_us, hora } = req.body;
 
         let response = '';
         for(let x of documentos_usu){
-            response = await pool.query('insert into noti_usu (id_noti_us,documento_usu,fecha,hora) values ($1,$2,current_date,current_time)',[id_noti_us,x]); 
+            response = await pool.query('insert into noti_usu (id_noti_us,documento_usu,fecha,hora) values ($1,$2,current_date,$3)',[id_noti_us,x,hora]); 
         }
 
         if(response.error){
@@ -163,9 +163,9 @@ const createMultipleNotifications = async (req, res) => {
 const sendOneNotification = async (req, res) => {
 
     try {
-        const { id_noti_us, documento_usu } = req.body;
+        const { id_noti_us, documento_usu, hora } = req.body;
         console.log(req.body);
-        const response = await pool.query('insert into noti_usu (id_noti_us,documento_usu,fecha,hora) values ($1,$2,current_date,current_time)',[id_noti_us,documento_usu]); 
+        const response = await pool.query('insert into noti_usu (id_noti_us,documento_usu,fecha,hora) values ($1,$2,current_date,$3)',[id_noti_us,documento_usu,hora]); 
 
         if(response.error){
             res.status(500).json(response.error);
