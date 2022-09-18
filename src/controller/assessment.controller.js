@@ -1277,7 +1277,7 @@ const verifyExistingRegisterCita = async (req, res) => {
 
 }
 
-const createSolicitadAssessment  = async (req, res) => {
+const createSolicitadAssessmentNoEsPrimera  = async (req, res) => {
 
     try {
         const { id_reservacion_usuario, documento_reservacion, state } = req.body;
@@ -1408,7 +1408,7 @@ module.exports = {
     
     
     verifyExistingRegisterCita,
-    createSolicitadAssessment
+    createSolicitadAssessmentNoEsPrimera
     
 
 
